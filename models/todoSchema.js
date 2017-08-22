@@ -1,8 +1,7 @@
 // SCHEMA GOES HERE
-// 'use strict'
 
-module.exports = function(sequelize, DataTypes) {
-  let ToDo = sequelize.define('ToDo', {
+const Todo = (sequelize, DataTypes) =>
+  sequelize.define('ToDo', {
     title: {
       type: DataTypes.STRING,
       allowNull: false
@@ -17,5 +16,5 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     }
   })
-  return ToDo
-}
+
+module.exports = ToDo
