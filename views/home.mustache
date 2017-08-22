@@ -17,17 +17,24 @@
     <ul>
       {{#todo}}
         <li>
-          <form class="toComplete" action="/complete" method="post">
+          <form class="toComplete" action="/complete/:id" method="post">
             <button type="submit" name="button">Click to complete!</button>
             <input type="hidden" name="id" value="{{id}}">
-            {{title}}{{description}}
+            <p>Title: {{title}}</p>
+            <p>Description: {{description}}</p>
           </form>
-          <!-- <p>Title: {{title}}</p>
-          <p>Description: {{description}}</p> -->
         </li>
+        {{/todo}}
     </ul>
     <h3>Completed</h3>
     <!-- Query for the todos that have their completed true -->
-    {{/todo}}
+    <ul>
+      {{#completedToDO}}
+      <li>
+        <p>Title: {{title}}</p>
+        <p>Description: {{description}}</p>
+      </li>
+      {{/completedToDO}}
+    </ul>
   </body>
 </html>
