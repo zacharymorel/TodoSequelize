@@ -13,4 +13,14 @@ router.get('/', (request, response) => {
     })
 })
 
+router.post('/createToDo', (request, response) => {
+  const todo = models.ToDo.build({
+    title: {request.body.title}
+    description: {request.body.description}
+  })
+
+  todo.save().then(newTodo => {
+    response.redirect('/')
+  })
+})
 module.exports = router

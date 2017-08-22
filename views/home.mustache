@@ -6,17 +6,28 @@
   </head>
   <body>
     <h2>List To Do:</h2>
+    <h4>Create a Todo</h4>
     <form class="createToDo" action="/createToDo" method="post">
       <p>Title:</p><input type="text" name="title" placeholder="Title">
       <p>Description</p><input type="text" name="description" placeholder="Description">
+      <button type="submit">Click to Create!</button>
     </form>
+    <h3>Not Completed</h3>
+    <!-- Query for todo's that are not completed-->
     <ul>
       {{#todo}}
-      <li>
-        <p>Title: {{title}}</p>
-        <p>Description: {{description}}</p>
-      </li>
-      {{/todo}}
+        <li>
+          <form class="toComplete" action="/complete" method="post">
+            <button type="submit" name="button">Click to complete!</button>
+            <input type="hidden" name="id" value="{{id}}">
+            {{title}}{{description}}
+          </form>
+          <!-- <p>Title: {{title}}</p>
+          <p>Description: {{description}}</p> -->
+        </li>
     </ul>
+    <h3>Completed</h3>
+    <!-- Query for the todos that have their completed true -->
+    {{/todo}}
   </body>
 </html>
