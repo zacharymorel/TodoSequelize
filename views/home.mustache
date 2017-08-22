@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ToDo app read page</title>
+  </head>
+  <body>
+    <h2>List To Do:</h2>
+    <form class="createToDo" action="/createToDo" method="post">
+      <p>Title:</p><input type="text" name="title" placeholder="Title">
+      <p>Description</p><input type="text" name="description" placeholder="Description">
+    </form>
+    <ul>
+      {{#List}}
+      <li>
+        <p>Title: {{title}}</p>
+        <p>Description: {{description}}</p>
+      </li>
+      {{/List}}
+    </ul>
+  </body>
+</html>

@@ -1,9 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const models = require('../models/todoSchema')
+const models = require('../models')
 
 router.get('/', (request, response) => {
-  response.send('Hello World!')
+  models.ToDo
+    .findAll()
+    .then(todo => {
+      response.render('home', { todo })
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
 
 module.exports = router
