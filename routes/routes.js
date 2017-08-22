@@ -49,4 +49,16 @@ router.post('/complete/:id', (request, response) => {
     })
 })
 
+// DELETING A ToDo
+router.post('/delete/:id', (request, response) => {
+  const id = parseInt(request.body.id)
+  models.ToDo
+    .destroy({
+      where: { id: id }
+    })
+    .then(deletedToDo => {
+      response.redirect('/')
+    })
+})
+
 module.exports = router

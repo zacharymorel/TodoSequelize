@@ -31,6 +31,10 @@
     <ul>
       {{#completedToDO}}
       <li>
+        <form class="deleteToDo" action="/delete/:id" method="post">
+          <button type="submit" name="button">Click to Delete!</button>
+          <input type="hidden" name="id" value="{{id}}">
+        </form>
         <p>Title: {{title}}</p>
         <p>Description: {{description}}</p>
       </li>
