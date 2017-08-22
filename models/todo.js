@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     {
       title: DataTypes.STRING,
       description: DataTypes.STRING,
-      completed: DataTypes.BOOLEAN
+      completed: DataTypes.BOOLEAN,
+      completedAt: DataTypes.DATE
     },
     {
       classMethods: {
