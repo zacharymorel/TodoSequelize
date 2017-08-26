@@ -5,47 +5,47 @@
     <title>ToDo app read page</title>
     <link rel="stylesheet" href="/style.css">
   </head>
-  <body>
+  <body class="body">
     <header>
       <nav>
         <h2>To Do List</h2>
       </nav>
     </header>
-    <section class="createDiv">
-      <h4>Create Something</h4>
+    <section class="createSec">
+      <h4 class="createSomething">Create Something</h4>
       <form class="createToDo" action="/createToDo" method="post">
         <span>Title:</span><input type="text" name="title" placeholder="Title">
-        <span>Description</span><input type="text" name="description" placeholder="Description">
-        <button type="submit">Create!</button>
+        <span>Description:</span><input type="text" name="description" placeholder="Description">
+        <button class="createB" type="submit">Create!</button>
       </form>
     </section>
-    <section class="notCompleted">
-      <h3>Not Completed</h3>
+    <section class="notCompletedToDo">
+      <h4>Not Completed</h4>
       <ul>
         {{#todo}}
           <li>
             <form class="toComplete" action="/complete/:id" method="post">
-              <button type="submit" name="button">Complete!</button>
-              <input type="hidden" name="id" value="{{id}}">
               <p>Title: {{title}}</p>
               <p>Description: {{description}}</p>
+              <button type="submit" name="button">Complete!</button>
+              <input type="hidden" name="id" value="{{id}}">
             </form>
           </li>
         {{/todo}}
       </ul>
     </section>
-    <section class="completed">
-      <h3>Completed</h3>
+    <section class="completedToDo">
+      <h4>Completed</h4>
       <ul>
         {{#completedToDO}}
         <li>
-          <form class="deleteToDo" action="/delete/:id" method="post">
-            <button type="submit" name="button">Delete!</button>
-            <input type="hidden" name="id" value="{{id}}">
-          </form>
           <p>Title: {{title}}</p>
           <p>Description: {{description}}</p>
           <p>Completed At: {{completedAt}}</p>
+          <form class="deleteToDo" action="/delete/:id" method="post">
+            <button class="deleteB" type="submit">Delete!</button>
+            <input type="hidden" name="id" value="{{id}}">
+          </form>
         </li>
         {{/completedToDO}}
       </ul>
