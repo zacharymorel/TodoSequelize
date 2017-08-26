@@ -33,7 +33,6 @@ router.post('/createToDo', (request, response) => {
 router.post('/complete/:id', (request, response) => {
   const id = parseInt(request.body.id)
   models.ToDo
-    // WHEN IT IS COMPLETED STAMP THE TIME IN THE DB
     .update(
       {
         completed: true,

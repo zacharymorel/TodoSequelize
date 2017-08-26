@@ -3,43 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title>ToDo app read page</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <h2>List To Do:</h2>
-    <h4>Create a Todo</h4>
-    <form class="createToDo" action="/createToDo" method="post">
-      <p>Title:</p><input type="text" name="title" placeholder="Title">
-      <p>Description</p><input type="text" name="description" placeholder="Description">
-      <button type="submit">Click to Create!</button>
-    </form>
-    <h3>Not Completed</h3>
-    <!-- Query for todo's that are not completed-->
-    <ul>
-      {{#todo}}
-        <li>
-          <form class="toComplete" action="/complete/:id" method="post">
-            <button type="submit" name="button">Click to complete!</button>
-            <input type="hidden" name="id" value="{{id}}">
-            <p>Title: {{title}}</p>
-            <p>Description: {{description}}</p>
-          </form>
-        </li>
+    <header>
+      <nav>
+        <h2>To Do List</h2>
+      </nav>
+    </header>
+    <section class="createDiv">
+      <h4>Create Something</h4>
+      <form class="createToDo" action="/createToDo" method="post">
+        <span>Title:</span><input type="text" name="title" placeholder="Title">
+        <span>Description</span><input type="text" name="description" placeholder="Description">
+        <button type="submit">Create!</button>
+      </form>
+    </section>
+    <section class="notCompleted">
+      <h3>Not Completed</h3>
+      <ul>
+        {{#todo}}
+          <li>
+            <form class="toComplete" action="/complete/:id" method="post">
+              <button type="submit" name="button">Complete!</button>
+              <input type="hidden" name="id" value="{{id}}">
+              <p>Title: {{title}}</p>
+              <p>Description: {{description}}</p>
+            </form>
+          </li>
         {{/todo}}
-    </ul>
-    <h3>Completed</h3>
-    <!-- Query for the todos that have their completed true -->
-    <ul>
-      {{#completedToDO}}
-      <li>
-        <form class="deleteToDo" action="/delete/:id" method="post">
-          <button type="submit" name="button">Click to Delete!</button>
-          <input type="hidden" name="id" value="{{id}}">
-        </form>
-        <p>Title: {{title}}</p>
-        <p>Description: {{description}}</p>
-        <p>completed At: {{completedAt}}</p>
-      </li>
-      {{/completedToDO}}
-    </ul>
+      </ul>
+    </section>
+    <section class="completed">
+      <h3>Completed</h3>
+      <ul>
+        {{#completedToDO}}
+        <li>
+          <form class="deleteToDo" action="/delete/:id" method="post">
+            <button type="submit" name="button">Delete!</button>
+            <input type="hidden" name="id" value="{{id}}">
+          </form>
+          <p>Title: {{title}}</p>
+          <p>Description: {{description}}</p>
+          <p>Completed At: {{completedAt}}</p>
+        </li>
+        {{/completedToDO}}
+      </ul>
+    </section>
   </body>
 </html>

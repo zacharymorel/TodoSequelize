@@ -1,0 +1,29 @@
+body {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: sans-serif;
+}
+nav {
+  background-color: red;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+h2 {
+  margin-top: 0;
+  color: white;
+}
+li {
+  list-style-type: none;
+}
+
+.createDiv {
+  margin-top: 5em;
+}
+
+.createToDo {
+  display: flex;
+  flex-direction: row;
+}
